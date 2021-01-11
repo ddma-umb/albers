@@ -9,41 +9,48 @@
 getColors();
 
 
-
 function getColors() {
 
 	var myPixels = [];
 
 
-	var c = document.getElementById("myCanvas");
+	// var c = document.getElementById("spCanvas");    
+	var c  = document.createElement('canvas');
 	var ctx = c.getContext("2d");
 	var img = document.getElementById("sp");
-	ctx.drawImage(img, 0, 0);
+
+	ctx.drawImage(img, 0, 0, c.width, c.height);
 	var imgData = ctx.getImageData(0, 0, c.width, c.height);
 
-	// invert colors
-	var i;
-	for (i = 0; i < imgData.data.length; i +) {
-	  imgData.data[i] = imgData.data[i];
-	  imgData.data[i + 1] = imgData.data[i + 1];
-	  imgData.data[i + 2] = imgData.data[i + 2];
-	  imgData.data[i + 3] = 255;
+	// console.log(imgData.data);
+
+	var myPixels = [[190,197,190], [202,204,200], [207,214,210], [211,214,211], [205,207,207]];
+
+	for (var i = 0; i < imgData.data.length; i+=4) {
+		let diff = i * 4;
+	  	r=imgData.data[0 + diff];
+		g=imgData.data[1 + diff];
+		b=imgData.data[2 + diff];
+		a=imgData.data[3 + diff];
+
+		myPixels.push([r, g, b]);
 	}
 
+
+		// console.log(myPixels);
 	ctx.putImageData(imgData, 0, 0);
 
 
+	// for(i=0 ; i< imgData.data.length ; i++){
+ 	//	myPixels.push(imgData.data[i]);
+	// }
 
 
-	// var myPixels = [[190,197,190], [202,204,200], [207,214,210], [211,214,211], [205,207,207]];
 	var maxColors = 2;
 
 
-	for(i=0 ; i< imgData.data.length ; i++){
-  	 	myPixels.push(imgData.data[i]);
-	}
 
-	console.log(myPixels);
+	// console.log(myPixels);
 	var cmap = quantize(myPixels, maxColors);
 	var newPalette = cmap.palette();
 	// var newPixels = myPixels.map(function(p) { 
