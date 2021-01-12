@@ -8,36 +8,20 @@
 
 getColors();
 
-function drawPallete(newPalette){
-	var c = document.createElement('canvas');   
-	// var c = document.getElementById("myCanvas");
-	c.width = 500;  
-	c.height = 200;  
-	document.body.appendChild(c);
-
-	for(var i = 0; i < newPalette.length; i++){
-		var ctx = c.getContext("2d");
-		ctx.beginPath();
-		ctx.arc(100+i*100, 75, 30, 0, 2 * Math.PI);
-		ctx.fillStyle = 'rgb('+newPalette[i]+')';
-		ctx.fill();
-	}
-}
-
-function getColors() {
+function getColors(imgSrc, amtColors) {
 
 	var myPixels = [];
 
 
 	var c = document.createElement('canvas');   
 	var ctx = c.getContext("2d");
-		document.body.appendChild(c);
+	// document.body.appendChild(c);
 
-	// var img = document.getElementById("sp");
 	var img = new Image;
-	img.src = 'sp.jpg'
+	img.src = imgSrc;
 	c.width = 120;
 	c.height = 120;
+	// c.style=
 	ctx.drawImage(img, 0, 0, c.width, c.height);
 	var imgData = ctx.getImageData(0, 0, c.width, c.height);
 
@@ -51,22 +35,10 @@ function getColors() {
 		myPixels.push([r, g, b]);
 	}
 
-	console.log(myPixels.length);
-
-	ctx.putImageData(imgData, 0, 0);
-
-
-	var maxColors = 2;
-
-
-
-	var cmap = quantize(myPixels, maxColors);
+	var amtColors = amtColors;
+	var cmap = quantize(myPixels, amtColors);
 	var newPalette = cmap.palette();
-	console.log(newPalette);
-	drawPallete(newPalette)
-	
-
-	return null;
 
 
+	return newPalette;
 }
