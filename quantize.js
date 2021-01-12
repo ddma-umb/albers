@@ -254,7 +254,7 @@ var newPixels = myPixels.map(function(p) {
             // force darkest color to black if everything < 5
             var lowest = vboxes[0].color;
             if (lowest[0] < 5 && lowest[1] < 5 && lowest[2] < 5)
-                vboxes[0].color = [0, 0, 0];
+                vboxes[0].color = [0, 0, 0];9
 
             // force lightest color to white if everything > 251
             var idx = vboxes.length - 1,
