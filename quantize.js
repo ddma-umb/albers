@@ -58,6 +58,7 @@ var newPixels = myPixels.map(function(p) {
 });
  
 */
+var MMCQ = (function() {
     // private constants
     var sigbits = 5,
     rshift = 8 - sigbits,
@@ -479,3 +480,12 @@ var newPixels = myPixels.map(function(p) {
 
         return cmap;
     }
+    return {
+        quantize: quantize
+    }
+    
+})();
+
+// module.exports = MMCQ.quantize;
+
+export default MMCQ.quantize;
