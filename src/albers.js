@@ -5,7 +5,7 @@
  * @author Remy Hunter
 
 */
-import quantize from './quantize.js'
+import quantize from 'quantize'
 
 
 export default function getColors(imgSrc, amtColors) {

@@ -1,5 +1,5 @@
 
-import getColors from '../albers.js';
+import getColors from 'albers'
 
 var palette = getColors('ultra.jpg', 5);
 var bgString = setBGcolor(palette);
