@@ -8,7 +8,7 @@
 import quantize from 'quantize'
 
 
-export default function getColors(imgSrc, amtColors) {
+export function getColors(imgSrc, amtColors){
 
 	var c = document.createElement('canvas');   
 	var ctx = c.getContext("2d");

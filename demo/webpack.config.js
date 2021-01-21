@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/albers.js',
+  entry: './js/index.js',
   output: {
-    filename: 'albers.mjs',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
 };

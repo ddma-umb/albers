@@ -1,4 +1,3 @@
-
 import getColors from 'albers'
 
 var palette = getColors('ultra.jpg', 5);
@@ -29,7 +28,7 @@ function setBGcolor(palette){
 	var pole = ['top', 'bottom'];
 	var direction = ['left', 'right'];
 	var j = 0;
-	for(var i = 0; i < palette.length; i++){
+	for(var i = 0; i < palette.length; i++){	
 		bgString+='linear-gradient(';
 		if(i > 0){
 			bgString+='to ' + pole[i%2] + ' ' + direction[j%2] + ', ';
