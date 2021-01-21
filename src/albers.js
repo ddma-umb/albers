@@ -8,7 +8,9 @@
 import quantize from 'quantize'
 
 
-export function getColors(imgSrc, amtColors){
+var albers = (function() {
+
+	function getColors(imgSrc, amtColors){
 
 	var c = document.createElement('canvas');   
 	var ctx = c.getContext("2d");
@@ -31,6 +33,12 @@ export function getColors(imgSrc, amtColors){
 	var cmap = quantize(myPixels, amtColors);
 	var newPalette = cmap.palette();
 
+	return newPalette 
+	}
 
-	return newPalette;
-}
+	return {
+        getColors: getColors
+    }
+})();
+
+module.exports = albers.getColors;
