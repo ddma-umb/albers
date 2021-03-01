@@ -17,8 +17,8 @@ var albers = (function() {
 
 	var img = new Image();
 	img.src = imgSrc;
-	c.width = 120;
-	c.height = 120;
+	// c.width = 120;
+	// c.height = 120;
 	ctx.drawImage(img, 0, 0, c.width, c.height);
 	var imgData = ctx.getImageData(0, 0, c.width, c.height);
 
