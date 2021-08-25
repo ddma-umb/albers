@@ -1,6 +1,6 @@
 {
   "name": "albers",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "![](albers.png)",
   "main": "albers.js",
   "directories": {
@@ -15,6 +15,13 @@
     "type": "git",
     "url": "git+https://github.com/ddma-umb/albers.git"
   },
+  "keywords": [
+    "colors",
+    "colormap",
+    "pointcolor",
+    "averagecolor",
+    "gradient"
+  ],
   "author": "remyhunt",
   "license": "ISC",
   "bugs": {
